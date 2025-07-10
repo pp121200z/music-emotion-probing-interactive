@@ -1,0 +1,62 @@
+HKU956: A Multimodal Dataset for Analyzing Listen’s Emotion and Physiological Responses Induced by Music
+
+Authors: 
+	Xiao Hu (xiaoxhu@hku.hk), Fanjie Li, & Ruilun Liu
+	The University of Hong Kong
+
+
+Please cite the following paper when using this dataset
+	Hu, X.; Li, F.; Liu, R. Detecting Music-Induced Emotion Based on Acoustic Analysis and Physiological Sensing: A Multimodal Approach. Applied Science. 2022, 12, 9354. https://doi.org/10.3390/app12189354 (free text available through Open Access) 
+
+This dataset is under the license CC BY-NC 4.0. You are free to use the material for non-commercial purposes, provided that you appropriately credit the authors.
+
+
+Introduction
+	HKU956 is a multimodal dataset for analyzing listeners’ emotion and physiological responses induced by music. Five kinds of peripheral physiological signals (i.e., heart rate, electrodermal activity, blood volume pulse, inter-beat interval, and skin temperature) of 30 participants (18 females) were recorded as they listened to music within a period of 40 minutes. Each participant listened to 10 or more songs and their physiological signals were aligned with the 956 listening records. Participants reported their emotion induced by each song in the arousal and valence dimensions in a scale of [-10, 10].   In addition, participants' personality traits were measured by the Ten Item Personality Measure (TIPI). The raw score in each of the five personality dimensions were presented, together with “high” or “low” categories derived from the TIPI norms provided by Gosling (https://gosling.psy.utexas.edu/scales-weve-developed/ten-item-personality-measure-tipi/). Last but not least, the original audio files of a total of 592 unique music pieces were presented in this dataset. These audio files were originally obtained from Jamando.com with CC-BY Licenses. 
+
+Directory of Files
+	.
+	├─README
+	├─1. physiological signals
+	| ├─hku1903
+	| | ├─BVP
+	| | | ├─0_262957.csv
+	| | | └─......
+	| | ├─EDA
+	| | | ├─0_262957.csv
+	| | | └─......
+	| | ├─HR
+	| | | ├─0_262957.csv
+	| | | └─......
+	| | ├─IBI
+	| | | ├─0_262957.csv
+	| | | └─......
+	| | └─TEMP
+	| |   ├─0_262957.csv
+	| |   └─......
+	| ├─hku1904
+	| └─......
+	├─2. original_song_audio.csv
+	├─3. AV_ratings.csv
+	└─4. participant_personality.csv
+
+Data Description
+	1. physiological signals: 
+	Five kinds of raw peripheral physiological signals, namely Blood Volume Pulse (BVP, sampled at 64Hz), Electrodermal Activity (EDA, sampled at 4Hz), Inter-beat Interval (IBI, intermittent output with 1/64 second resolution), Heart Rate (HR, sampled at 1Hz), and Skin Temperature (TEMP, sampled at 4Hz), were aligned with participant ID (participant_id), listening order (song_no), and song ID (song_id). The csv file was named by the listening order (starting from 0) and the song id, e.g., 0_262957.csv indicates the first listening record with song #262957. More details about the collected physiological signals can refer to E4 wristband data (https://support.empatica.com/hc/en-us/sections/200582445-E4-wristband-data).
+
+	2. original_song_audio.csv: 
+	song id with accessible mp3 link.
+
+	3. AV_ratings.csv: 
+	956 listening records with participant ID, listening order, song ID, and self-reported emotion valence and arousal levels. 
+	
+	4. participant_personality.csv: Participants' personality traits measured by Ten Item Personality Measure (TIPI). This file includes raw scores and categories for which “0” stands for “low” and “1” stands for “high”. 
+
+Acknowledgments
+	This study is supported by National Natural Science Foundation of China (No. 61703357) 569 and the Re-search Grants Council of the Hong Kong S. A. R., China (No. HKU 17607018). We also would like to thank the 30 participants in this study for their kindness and patience during the data collection.
+
+Update
+├─14.09.2022(GMT+8) - First online date
+├─31.10.2022(GMT+8) - Posted date
+└─07.11.2022(GMT+8) - (1) Add the "play_duration" (i.e., Length of time a user plays a song) column into the file "3. AV_ratings.csv";
+					  (2) Fill the missing value of the "valence_rating" column for the record with participant_id=hku1929, song_no=7, song_id=1119024 in the file "3. AV_ratings.csv"

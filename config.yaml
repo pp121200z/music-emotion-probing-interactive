@@ -1,0 +1,107 @@
+# Music Emotion Probing Configuration
+
+# Dataset configuration
+dataset:
+  data_root: "data/HKU956"
+  physio_signals_dir: "1. physiological_signals"
+  av_ratings_file: "3. AV_ratings.csv"
+  
+  # Signal sampling rates (Hz)
+  sampling_rates:
+    bvp: 64
+    eda: 4
+    hr: 1
+    temp: 4
+  
+  # Modalities to use in experiments
+  modalities:
+    - "bvp"
+    - "eda" 
+    - "hr"
+    - "temp"
+
+# TimesFM model configuration
+timesfm:
+  # Model parameters
+  model_id: "google/timesfm-1.0-200m-pytorch"
+  context_length: 512
+  horizon_length: 128
+  per_core_batch_size: 32
+  feature_dim: 1280
+  
+  # GPU settings
+  use_gpu: true
+  backend: "auto"  # auto, cpu, gpu
+  
+  # Layer settings
+  total_layers: 20
+  capture_layers: false
+
+# Experiment configuration
+experiment:
+  # Output settings
+  results_dir: "results"
+  max_recordings: null  # Set to null for all recordings
+  
+  # Cross-validation settings
+  n_folds: 5
+  random_state: 42
+  shuffle: true
+  
+  # Layer probing settings
+  layer_wise: true
+  layers_to_probe: null  # null for all layers, or list like [0, 5, 10, 15, 19]
+  
+  # Target emotions
+  targets:
+    - "valence"
+    - "arousal"
+  
+  # Quick test settings
+  quick_test:
+    enabled: false
+    n_folds: 3
+    layers: [0, 5, 10, 15, 19]
+
+# Model configurations for probing
+models:
+  linear:
+    type: "LogisticRegression"
+    params:
+      random_state: 42
+      max_iter: 1000
+      
+  # svm:
+  #   type: "SVC"
+  #   params:
+  #     random_state: 42
+  #     kernel: "rbf"
+      
+  # mlp:
+  #   type: "MLPClassifier" 
+  #   params:
+  #     random_state: 42
+  #     hidden_layer_sizes: [128]
+  #     max_iter: 1000
+
+# Preprocessing configuration
+preprocessing:
+  # Signal preprocessing
+  normalize: true
+  resample_length: null  # Uses context_length if null
+  
+  # Feature extraction
+  feature_aggregation: "mean"  # mean, max, last
+  
+# Paths and I/O
+paths:
+  src_dir: "src"
+  data_dir: "data"
+  results_dir: "results"
+  cache_dir: ".cache"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: null  # null for console only 
