@@ -1,4 +1,6 @@
 # Original Project Overview (from AokiKoshiro)
+https://github.com/AokiKoshiro/music-emotion-probing
+
 
 # Music Emotion Probing
 
