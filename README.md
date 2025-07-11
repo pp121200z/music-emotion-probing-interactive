@@ -1,4 +1,4 @@
-# ******************* Original Project Overview (from AokiKoshiro)**********************
+# Original Project Overview (from AokiKoshiro)
 
 # Music Emotion Probing
 
@@ -44,7 +44,7 @@ uv run python visualize_results.py
 
 
 
-# **************************This Updated Version Overview*********************************
+# This Updated Version Overview
 
 ## Web Interface for this model
 This version includes a frontend for uploading CSV data and visualizing emotion predictions.
