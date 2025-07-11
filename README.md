@@ -1,3 +1,5 @@
+# ******************* Original Project Overview (from AokiKoshiro)**********************
+
 # Music Emotion Probing
 
 A research project investigating emotion estimation from physiological signals during music listening using TimesFM foundation model representations.
@@ -39,3 +41,46 @@ uv run python run_experiment.py
 # Visualize results
 uv run python visualize_results.py
 ```
+
+
+
+# **************************This Updated Version Overview*********************************
+
+## Web Interface for this model
+This version includes a frontend for uploading CSV data and visualizing emotion predictions.
+
+## What is updated
+This project is forked and developed from AokiKoshiro/music-emotion-probing, with additional features:
+
+1. Real-time prediction via web interface
+2. Quadrant-based emotion visualization (arousal vs valence)
+3. Supports physiological signal CSV upload
+
+## New Files
+- `frontend/`: React-based UI
+- `predict_server.py`: Simplified inference API
+- Demo-ready setup instructions
+
+## Setup
+
+# Start the backend server
+
+```bash
+cd music-emotion-probing-main
+python -m venv venv310
+.\venv310\Scripts\Activate.ps1
+pip install -r requirements.txt
+python predict_server.py
+```
+
+# Start the frontend server (Vite+React)
+
+```bash
+cd frontend
+npm install        # only  the first time
+npm run dev   # launches at http://localhost:5173/
+```
+
+
+
+> Developed by Peiyi Zhang, July 2025.
